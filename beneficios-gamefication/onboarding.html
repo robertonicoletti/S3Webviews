@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"
+    />
+
+    <title>Desafio PicPay</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/global.css" />
+
+    <style>
+      .header {
+        justify-content: flex-end;
+      }
+
+      .top {
+        min-height: 29%;
+        background-image: url(assets/menina-moedas.png), url(assets/elipse.png);
+        background-repeat: no-repeat;
+        background-position-x: 82%, center;
+        background-size: 25%, cover;
+        padding-left: 16px;
+        background-position-y: 0px, -65px;
+      }
+
+      .top h4 {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: normal;
+        margin: 0px;
+      }
+
+      .top h1 {
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 28px;
+        margin: 0px;
+      }
+
+      .rules {
+        margin: 0px 16px;
+      }
+
+      .rules h4 {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 26px;
+        margin-top: 16px;
+      }
+
+      .rules h4 span {
+        color: #0097dc;
+      }
+
+      .rule-item {
+        display: flex;
+        flex-flow: row;
+        align-items: baseline;
+        padding-bottom: 24px;
+        background-image: url(assets/line.png);
+        background-repeat: repeat-y;
+        background-position: 11px 0px;
+        height: 100%;
+        width: 100%;
+      }
+
+      .rule-item:last-of-type {
+        background-image: none;
+      }
+
+      .rule-item div {
+        border: 1px solid #11c76f;
+        box-sizing: border-box;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        border-radius: 50%;
+        padding: 5px 10px;
+        color: #11c76f;
+        height: 24px;
+        width: 24px;
+        background-color: #ffffff;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .rule-item p {
+        font-size: 14px;
+        line-height: 22px;
+        color: #525f66;
+        margin: 0px 0px 0px 8px;
+      }
+
+      .cta {
+        padding-bottom: 8px;
+      }
+    </style>
+    <script type="text/javascript" src="mixpanel.js"></script>
+  </head>
+
+  <body
+    onload="userHasViewedOnboarding();"
+  >
+    <div class="container">
+      <div class="header">
+        <a
+          href="inicio.html"
+          onclick="trackEvent('Onboarding Closed', {type: 'X'})"
+          ><img src="assets/x.png" alt="back"
+        /></a>
+      </div>
+      <div class="top">
+        <h4>Bem-vindo ao</h4>
+        <h1>
+          Desafio PicPay!
+        </h1>
+      </div>
+      <div class="rules">
+        <h4>
+          Complete todas as missões e ganhe <span>R$ 18,00 de cashback</span>
+        </h4>
+        <div class="rule-item">
+          <div>
+            1
+          </div>
+          <p>
+            Cada missão concluída deixa você mais próximo de resgatar o prêmio
+            total.
+          </p>
+        </div>
+        <div class="rule-item">
+          <div>
+            2
+          </div>
+          <p>
+            O desafio tem data limite, para ganhar o prêmio é necessário
+            completá-lo antes da data de término.
+          </p>
+        </div>
+        <div class="rule-item">
+          <div>
+            3
+          </div>
+          <p>
+            O cashback será pago após a conclusão de todas missões.
+          </p>
+        </div>
+        <div class="rule-item">
+          <div>
+            4
+          </div>
+          <p>
+            O cashback adquirido ao final do desafio pode ser gasto somente
+            dentro do aplicativo PicPay, ou seja, não poderá ser sacado.
+          </p>
+        </div>
+      </div>
+      <div class="cta">
+        <a href="#" onclick="goToNextPage()">Entendi</a>
+      </div>
+    </div>
+
+    <script>
+      const page_origin = getParam("page_origin");
+      const userHasViewedOnboarding = () => {
+        // Se tiver página de origem, não precisa fazer nada.
+        if (!!page_origin) {
+          return;
+        }
+
+        // Se o user não viu o onboarding, n precisa fazer nada.
+        if (!window.localStorage.getItem("pipcay_onboarding_viewed")) {
+          return;
+        }
+
+        // Se o user ja viu o onboarding e ja aceitou o desafio, manda pro desafio 1
+        if (!!window.localStorage.getItem("picpay_challenge_accepted_time")) {
+          location.href = "desafio_1.html";
+          return;
+        }
+
+        location.href = "inicio.html";
+        trackEvent('Page Viewed', { game_status: getGameStatusForOnboarding(), page: 'onboarding', origin: getParam('origin')})
+      };
+
+      const goToNextPage = () => {
+        trackEvent("Onboarding Closed", { type: "Entendi" });
+        window.localStorage.setItem("pipcay_onboarding_viewed", true);
+
+        if (page_origin) {
+          location.href = page_origin + ".html";
+          return;
+        }
+
+        location.href = "inicio.html";
+      };
+    </script>
+  </body>
+</html>

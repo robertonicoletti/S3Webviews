@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+    Elektro
+  </title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1,width=device-width,maximum-scale=1.0,user-scalable=no">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <style type="text/css">
+    body {
+      margin: 0px;
+    }
+    td {
+      vertical-align: baseline;
+    }
+  </style>
+  <link rel="stylesheet" href="https://use.typekit.net/rdr3uos.css">
+</head>
+
+<!-- INICIARLIZAR API DO MIXPANEL -->
+<script type="text/javascript">(function (c, a) {
+    if (!a.__SV) {
+      var b = window; try { var d, m, j, k = b.location, f = k.hash; d = function (a, b) { return (m = a.match(RegExp(b + "=([^&]*)"))) ? m[1] : null }; f && d(f, "state") && (j = JSON.parse(decodeURIComponent(d(f, "state"))), "mpeditor" === j.action && (b.sessionStorage.setItem("_mpcehash", f), history.replaceState(j.desiredHash || "", c.title, k.pathname + k.search))) } catch (n) { } var l, h; window.mixpanel = a; a._i = []; a.init = function (b, d, g) {
+        function c(b, i) {
+          var a = i.split("."); 2 == a.length && (b = b[a[0]], i = a[1]); b[i] = function () {
+            b.push([i].concat(Array.prototype.slice.call(arguments,
+              0)))
+          }
+        } var e = a; "undefined" !== typeof g ? e = a[g] = [] : g = "mixpanel"; e.people = e.people || []; e.toString = function (b) { var a = "mixpanel"; "mixpanel" !== g && (a += "." + g); b || (a += " (stub)"); return a }; e.people.toString = function () { return e.toString(1) + ".people (stub)" }; l = "disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
+        for (h = 0; h < l.length; h++)c(e, l[h]); var f = "set set_once union unset remove delete".split(" "); e.get_group = function () { function a(c) { b[c] = function () { call2_args = arguments; call2 = [c].concat(Array.prototype.slice.call(call2_args, 0)); e.push([d, call2]) } } for (var b = {}, d = ["get_group"].concat(Array.prototype.slice.call(arguments, 0)), c = 0; c < f.length; c++)a(f[c]); return b }; a._i.push([b, d, g])
+      }; a.__SV = 1.2; b = c.createElement("script"); b.type = "text/javascript"; b.async = !0; b.src = "undefined" !== typeof MIXPANEL_CUSTOM_LIB_URL ?
+        MIXPANEL_CUSTOM_LIB_URL : "file:" === c.location.protocol && "//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js"; d = c.getElementsByTagName("script")[0]; d.parentNode.insertBefore(b, d)
+    }
+  })(document, window.mixpanel || []);
+  mixpanel.init("9aed7ece8a357fba80c140ef1c8c620e");
+</script>
+<!-- -->
+
+<body style="background-color:#fafafa;">
+
+  <!-- HERO -->
+  <div style="width: 100%; min-height: 427px;">
+    <div style="width: 100%; text-align: center; ">
+      <img src="hero-coelba.png" alt="" width="375" style="padding: 0px 0px 0px 0px; width: 100%;">
+    </div>
+  </div>
+
+
+  <!-- TEXTO -->
+  <p
+    style="margin:0px 60px 12px 60px; font-weight: normal; font-size:16px; line-height: 150%; font-family: 'montserrat', San Franscisco, Arial, sans-serif; color: #666666; text-align: center;">
+    Com o PicPay você paga suas contas de energia a qualquer momento e de qualquer lugar. E o melhor: você escolhe se
+    vai pagar <strong>à vista</strong> – <i>usando dinheiro em saldo ou cartão de crédito</i> – ou <strong>parcelar em
+      até 12x</strong>, acredita?
+  </p>
+
+  <div
+    style="margin-left: auto; margin-right: auto; margin-top: 20px; padding: 10px 10px 10px 10px; margin-bottom: 20px; width: 85%; background-color: #E0FFDE; border-radius: 20px;">
+
+    <table align="center" border="0" cellpadding="0" cellspacing="0"
+      style="overflow-x: hidden; margin-right: auto; margin-left: auto; margin-bottom: 20px; width: 80%;">
+      <tr>
+        <td v-align="top" align="center" style="margin: 30px 5px 15px 0px;">
+        </td>
+      </tr>
+
+      <tbody>
+        <tr>
+          <td colspan="2" v-align="top" align="center">
+            <p
+            style="margin:0; padding: 0px 0px 0px 0px; font-weight: normal; font-size:18px; line-height: 150%; font-family: 'montserrat', San Franscisco, Arial, sans-serif; color: #00CE6E; text-align: center;">
+            <strong>Pagar seu boleto Coelba</strong>
+          </p>
+          <p
+          style="margin:0; padding: 0px 0px 15px 0px; font-weight: normal; font-size:18px; line-height: 150%; font-family: 'montserrat', San Franscisco, Arial, sans-serif; color: #00CE6E; text-align: center;">
+          <strong>com PicPay é muito fácil:</strong>
+        </p>
+          </td>
+        </tr>
+        <tr>
+          <td v-align="top"> <img src="1.png" alt="" width="38" style="padding: 0px 0px 0px 0px;"></td>
+          <td v-align="top" style="vertical-align: top;">
+            <p
+              style="margin-top: 0px; padding: 0px 0px 0px 10px; font-size: 14px; line-height: 150%; font-family: 'montserrat', San Franscisco, Arial, sans-serif; color: #0053C9; text-align: left; ">
+              No app, toque em ‘Pagar Conta’
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td v-align="top"> <img src="2.png" alt="" width="38" style="padding: 0px 0px 0px 0px; "></td>
+          <td v-align="top" style="vertical-align: top;">
+            <p
+              style="margin-top: 0px; padding: 0px 0px 0px 10px; font-size: 14px; line-height: 150%; font-family: 'montserrat', San Franscisco, Arial, sans-serif; color: #0053C9; text-align: left;">
+              Escaneie ou digite o código do boleto
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td v-align="top"> <img src="3.png" alt="" width="38" style="padding: 0px 0px 0px 0px; "></td>
+          <td v-align="top" style="vertical-align: top;">
+            <p
+              style="margin: 0px 0px 0px 10px; font-size: 14px; line-height: 150%; font-family: 'montserrat', San Franscisco, Arial, sans-serif; color: #0053C9; text-align: left;">
+              Escolha a forma de pagamento e efetue o pagamento
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p
+    style="margin: 0; padding:10px 60px 20px 60px; font-size:16px;line-height:150%; font-family: 'montserrat', San Franscisco, Arial, sans-serif;color: #333f4c; text-align: center;">
+    A Elektro oferece o fornecimento de energia e o PicPay o melhor serviço de pagamentos.
+  </p>
+  <p
+    style="margin: 0; padding:10px 60px 120px 60px; font-size:16px;line-height:150%;font-weight: 600;font-family: 'montserrat', San Franscisco, Arial, sans-serif;color: #333f4c; text-align: center;">
+    <strong>Quer ver como é fácil pagar sua conta agora mesmo?</strong>
+  </p>
+
+  <!-- FOOTER BUTTON -->
+  <div
+    style="width: 100%; position: fixed; bottom: 0; left: 0; background-color: #ffffff; padding: 30px 0px 20px 0px; box-shadow: 0px -7px 15px rgb(51, 63, 76, 0.2); border-radius: 30px 30px 0px 0px">
+    <a class="cta" href="picpay://picpay/credit/registration"
+      style="height: 50px; width: 250px; font-family: 'montserrat', San Franscisco, Arial, sans-serif; background-color: #11c76f; border-radius: 50px; margin-right: auto; margin-left: auto; text-decoration: none; line-height: 50px; display:table; text-align: center; font-weight: 600; font-size: 18px; color: #ffffff;">
+     Pagar agora
+    </a>
+  </div>
+
+
+
+  <script>
+    function getMobileOperatingSystem() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      if (/android/i.test(userAgent)) {
+        Android.getToken();
+        Android.getInstallationId();
+        Android.getConsumerId();
+      }
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.webkit.messageHandlers.getToken.postMessage("");
+        window.webkit.messageHandlers.getInstallationId.postMessage("");
+        window.webkit.messageHandlers.getConsumerId.postMessage("");
+      }
+    }
+
+    getMobileOperatingSystem();
+
+    //Identificar usuário por consumer_id
+
+    function setConsumerId(id) {
+      mixpanel.identify(id);
+    }
+
+    //Evento disparado ao abrir webview
+
+    mixpanel.track('Webview Opened',
+      {
+        //INSERIR NOME DO WEBVIEW NO VALOR DE message
+        "message": "30/06/2020 - GRANDES CONTAS - FARMACIA - RJ"
+      }
+    );
+
+    //Evento disparo ao tocar em botão com a classe "cta"
+
+    mixpanel.track_links(".cta", "Webview Link Clicked",
+      {
+        //INSERIR NOME DO WEBVIEW NO VALOR DE message
+        "message": "30/06/2020 - GRANDES CONTAS - FARMACIA - RJ"
+      }
+    );
+  </script>
+
+</body>
+
+</html>

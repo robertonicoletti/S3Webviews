@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"
+    />
+
+    <title>Desafio PicPay</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/global.css" />
+
+    <style>
+      .header {
+        background: #f2f2f2;
+        justify-content: space-between;
+      }
+
+      .top {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        margin: 20px 16px 0px;
+      }
+
+      .top img {
+        height: 112px;
+      }
+
+      .top h1 {
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 32px;
+        margin: 0px;
+      }
+
+      .top p {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: #525f66;
+        text-align: center;
+      }
+
+      .missoes {
+        padding: 16px;
+        background: #f2f2f2;
+      }
+
+      .missoes h4 {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 26px;
+        margin: 0;
+      }
+
+      .missoes > p {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: #525f66;
+        margin-top: 0;
+      }
+
+      .progresso {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 35px;
+      }
+
+      .progresso p {
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 20px;
+      }
+
+      .progresso p > span {
+        color: #0097dc;
+      }
+
+      .barra-progresso-container {
+        width: 100%;
+      }
+
+      .barra-progresso {
+        background: #f4f4f6;
+        border-radius: 10px;
+        width: 100%;
+        height: 8px;
+        margin-bottom: 20px;
+      }
+
+      .barra-progresso div {
+        height: 100%;
+        background-color: #0097dc;
+        border-radius: 10px;
+      }
+
+      .missao-item-card {
+        background: #ffffff;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+        display: flex;
+        margin-bottom: 16px;
+        padding: 16px;
+        flex-wrap: wrap;
+      }
+
+      .missao-item-card:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .missao-item-card img {
+        height: 40px;
+        margin-top: 12px;
+      }
+
+      .missao-item-card p {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        color: #525f66;
+        padding-left: 8px;
+        width: 80%;
+        margin-top: 8px;
+      }
+
+      .missao-item-card-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .missao-item-card-description {
+        display: flex;
+        justify-content: center;
+      }
+
+      .pagar {
+        display: none;
+      }
+
+      .desafio-ativo .pagar {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+      }
+
+      .pagar a {
+        min-width: 140px;
+        height: 40px;
+        background: white;
+        border: 1px solid #11c76f;
+        border-radius: 60px;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        color: #11c76f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        margin-bottom: 5px;
+        padding: 8px 16px;
+      }
+
+      .cta {
+        background: #ffffff;
+        display: flex;
+        width: 100%;
+        bottom: 0;
+        flex-flow: column;
+      }
+
+      .bottom-button-container {
+        background: #f2f2f2;
+      }
+
+      .missao-item-card-store {
+        padding-left: 8px;
+        margin-bottom: 16px;
+      }
+
+      .missao-item-card-store span {
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: normal;
+        color: #525f66;
+      }
+
+      .missao-item-card-store p {
+        margin-bottom: 0;
+        padding: 0;
+      }
+
+      .prazo {
+        border: 0;
+        padding-top: 0;
+        padding-bottom: 16px;
+      }
+    </style>
+    <script type="text/javascript" src="mixpanel.js"></script>
+  </head>
+
+  <body
+    onload="trackEvent('Page Viewed', { game_status: 'nao_iniciado', page: 'inicio'});"
+  >
+    <div class="container">
+      <div class="top">
+        <img src="assets/dinheiro.png" />
+        <h1>Desafio PicPay</h1>
+        <p>
+          Complete todas as missões e ganhe um cashback de:
+        </p>
+        <div class="reward">R$ 18,00</div>
+        <div class="progresso">
+          <div>
+            <p>Missões: <span id="missao-counter">0 de 3</span></p>
+          </div>
+          <div>
+            <p>Progresso: <span id="progresso-counter">0%</span></p>
+          </div>
+        </div>
+        <div class="barra-progresso-container">
+          <div class="barra-progresso"></div>
+        </div>
+      </div>
+      <div class="missoes">
+        <h4>1º Missão</h4>
+        <p>Complete uma das tarefas abaixo:</p>
+        <div class="missao-item-card">
+          <div class="missao-item-card-container">
+            <div class="missao-item-card-description">
+              <img src="assets/p2p.png" />
+              <p>
+                Pague um amigo usando o saldo PicPay
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="missao-item-card">
+          <div class="missao-item-card-container">
+            <div class="missao-item-card-description">
+              <img src="assets/pagar_estabelecimento.png" />
+              <p>
+                Pague um estabelecimento comercial com o PicPay
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-button-container">
+        <a
+          href="onboarding.html?origin=como_funciona&page_origin=inicio"
+          onclick="trackEvent('Onboarding Accessed', {page: 'inicio'})"
+          >Como funciona?</a
+        >
+      </div>
+      <div class="cta">
+        <a href="desafio_1.html" onclick="trackEventAndSaveTime()"
+          >Iniciar Desafio</a
+        >
+        <div class="prazo">
+          <img
+            class="prazo-img"
+            id="prazo-img"
+            src="assets/relogio.svg"
+            alt="relogio"
+          />
+          <p id="prazo-text">
+            Expira em 15 dias
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const trackEventAndSaveTime = () => {
+        trackEvent("Challenge Accepted", {});
+        window.localStorage.setItem(
+          "picpay_challenge_accepted_time",
+          new Date().getTime()
+        );
+      };
+    </script>
+  </body>
+</html>

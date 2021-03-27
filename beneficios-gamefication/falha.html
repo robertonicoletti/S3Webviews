@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"
+    />
+
+    <title>Não foi dessa vez</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/global.css" />
+    <script type="text/javascript" src="mixpanel.js"></script>
+
+    <style>
+      .header {
+        justify-content: flex-start;
+        height: 50px;
+      }
+
+      .top {
+        min-height: 30%;
+        background-image: url(assets/mail.png), url(assets/elipse.png);
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-size: 40%, cover;
+        background-position-y: 0px, -65px;
+      }
+
+      .cta {
+        margin-top: 64px;
+      }
+    </style>
+  </head>
+
+  <body onload="trackEvents()">
+    <div class="container">
+      <div class="header">
+      </div>
+      <div class="top"></div>
+      <div class="disclaimer">
+        <h1>Não foi dessa vez</h1>
+        <p>
+          O prazo para concluir o desafio acabou. Mas fique tranquilo, ainda
+          existem várias oportunidades no nosso app.
+        </p>
+      </div>
+
+      <div class="cta enviar">
+        <a href="avaliacao.html?game_status=nao_completado">Continuar</a>
+      </div>
+
+      <div class="bottom-picpay">
+        <img src="assets/picpay.png" alt="picpay-logo" />
+      </div>
+    </div>
+
+     <script>
+      const trackEvents = () => {
+        trackEvent("Page Viewed", {
+          game_status: "nao_completado",
+          page: "falha_desafio",
+        });
+        trackEvent("End Page Viewed", {
+          status: 'nao_completado',
+        });
+      };
+    </script>
+  </body>
+</html>

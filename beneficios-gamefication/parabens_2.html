@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"
+    />
+
+    <title>2º Missão concluída</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/global.css" />
+
+    <style>
+      .top {
+        min-height: 29%;
+        background-image: url(assets/parabens.png), url(assets/elipse.png);
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-size: 60%, cover;
+        background-position-y: 0px, -65px;
+      }
+
+      .cta {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+      }
+
+      .prazo {
+        border: 0;
+        padding-top: 0;
+        padding-bottom: 16px;
+      }
+    </style>
+    <script type="text/javascript" src="mixpanel.js"></script>
+  </head>
+
+  <body
+    onload="trackEvent('Page Viewed', { game_status: 'iniciado', page: 'sucesso_desafio_2'}); countDias()"
+  >
+    <div class="container">
+      <div class="header">
+        <a
+          href="desafio_3.html"
+          onclick="trackEvent('Next Mission Clicked', {mission: 'desafio_3'})"
+          ><img src="assets/x.png" alt="back"
+        /></a>
+      </div>
+      <div class="top"></div>
+      <div class="disclaimer">
+        <h1>Parabéns!</h1>
+        <p>
+          Você completou a <span>segunda tarefa</span> do Desafio PicPay e está
+          um passo mais perto de conquistar seu cashback de:
+        </p>
+      </div>
+      <div class="reward">R$ 18,00</div>
+      <div class="cta">
+        <a
+          href="desafio_3.html"
+          onclick="trackEvent('Next Mission Clicked', {mission: 'desafio_3'})"
+          >Ver próxima missão</a
+        >
+        <div class="prazo">
+          <img class="prazo-img" id="prazo-img" src="assets/relogio.svg" alt="relogio" />
+          <p id="prazo-text">
+            Expira em {$dias} dias
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

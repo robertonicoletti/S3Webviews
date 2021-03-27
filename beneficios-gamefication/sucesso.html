@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"
+    />
+
+    <title>Desafio Concluído</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/global.css" />
+    <script type="text/javascript" src="mixpanel.js"></script>
+
+    <style>
+      html,
+      body,
+      .container {
+        height: 100%;
+      }
+
+      .header {
+        justify-content: flex-start;
+      }
+
+      .top {
+        min-height: 35%;
+        background-image: url(assets/sucesso.png), url(assets/elipse.png);
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-size: 53%, cover;
+        background-position-y: 0px, -65px;
+      }
+
+      .cta {
+        margin-top: 32px;
+      }
+    </style>
+  </head>
+
+  <body onload="trackEvents()">
+    <div class="container">
+      <div class="header"></div>
+      <div class="top"></div>
+      <div class="disclaimer">
+        <h1>Desafio concluído!</h1>
+        <p>Parabéns, você mandou muito bem nesse desafio e ganhou:</p>
+      </div>
+      <div class="reward">R$ 18,00</div>
+
+      <div class="cta enviar">
+        <a href="avaliacao.html?game_status=completado">Continuar</a>
+      </div>
+      <div class="bottom-picpay">
+        <img src="assets/picpay.png" alt="picpay-logo" />
+      </div>
+    </div>
+
+    <script>
+      const trackEvents = () => {
+        trackEvent("Page Viewed", {
+          game_status: "completado",
+          page: "sucesso_desafio_3",
+        });
+        trackEvent("End Page Viewed", {
+          status: 'completado',
+        });
+      };
+    </script>
+  </body>
+</html>

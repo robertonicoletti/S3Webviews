@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"
+    />
+
+    <title>Conta pra gente</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/global.css" />
+    <script type="text/javascript" src="mixpanel.js"></script>
+
+    <style>
+      html,
+      body,
+      .container {
+        height: 100%;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .header {
+        justify-content: space-between;
+        background: transparent;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+      }
+
+      .top {
+        min-height: 100px;
+        background-image: url(assets/joia.png);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 100px;
+        margin-bottom: 16px;
+      }
+
+      .disclaimer h1 {
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 21px;
+        text-align: center;
+      }
+
+      .avaliacao {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 32px;
+      }
+
+      .avaliacao img {
+        height: 32px;
+        margin: 0 8px;
+      }
+
+      .comentarios {
+        font-size: 12px;
+        line-height: 18px;
+        color: #aab0b2;
+        margin: 0px 15px;
+      }
+
+      .comentarios input {
+        border: none;
+        border-bottom: 1px solid #11c76f;
+        width: 100%;
+        padding: 0 0 8px;
+      }
+
+      .comentarios input:focus {
+        outline: 0;
+      }
+
+      .enviar a {
+        height: 40px;
+        font-weight: 600;
+        line-height: 21px;
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+
+      .star {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="top"></div>
+      <div class="disclaimer">
+        <h1>Sua opinião é importante</h1>
+        <p>
+          De 1 a 5, o quanto você estaria disposto a realizar novos desafios?
+        </p>
+      </div>
+      <div class="avaliacao">
+        <img
+          class="star"
+          onclick="updateStars(1)"
+          src="assets/estrela.png"
+          alt="estrela"
+        />
+        <img
+          class="star"
+          onclick="updateStars(2)"
+          src="assets/estrela.png"
+          alt="estrela"
+        />
+        <img
+          class="star"
+          onclick="updateStars(3)"
+          src="assets/estrela.png"
+          alt="estrela"
+        />
+        <img
+          class="star"
+          onclick="updateStars(4)"
+          src="assets/estrela.png"
+          alt="estrela"
+        />
+        <img
+          class="star"
+          onclick="updateStars(5)"
+          src="assets/estrela.png"
+          alt="estrela"
+        />
+      </div>
+      <div class="comentarios">
+        <span>Gostaria de dizer algo mais? (opcional)</span>
+        <input
+          type="text"
+          placeholder="Escreva aqui..."
+          id="input_comentario"
+        />
+      </div>
+      <div class="cta enviar">
+        <a href="#" onclick="trackEventAndGoToObrigado()">Avaliar</a>
+      </div>
+      <div class="bottom-button-container">
+        <a href="picpay://picpay/promotions">Agora não</a>
+      </div>
+      <div class="bottom-picpay">
+        <img src="assets/picpay.png" alt="picpay-logo" />
+      </div>
+    </div>
+
+    <script>
+      var game_status = getParam("game_status");
+      trackEvent("Page Viewed", { game_status, page: "avaliacao" });
+      var rate = '0';
+      const updateStars = (stars) => {
+        rate = stars.toString();
+        Array.from(document.getElementsByClassName("star")).map(
+          (starElem, index) => {
+            if (index <= stars - 1) {
+              starElem.src = "assets/estrela_preenchida.svg";
+              return;
+            }
+
+            starElem.src = "assets/estrela.png";
+          }
+        );
+        trackEvent("Experience Rated", {
+          rate,
+          status: game_status,
+        });
+      };
+
+      const trackEventAndGoToObrigado = () => {
+        trackEvent("Comment Sent", {
+          comment: document.getElementById("input_comentario").value,
+          final_rate: rate,
+          status: game_status,
+        });
+        location.href = "obrigado.html?game_status=" + game_status;
+      };
+    </script>
+  </body>
+</html>

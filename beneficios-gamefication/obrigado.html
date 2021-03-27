@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"
+    />
+
+    <title>Muito obrigado</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/global.css" />
+    <script type="text/javascript" src="mixpanel.js"></script>
+
+    <style>
+      html,
+      body,
+      .container {
+        height: 100%;
+      }
+
+      .header {
+        justify-content: flex-start;
+        background-color: #e0f4fc;
+      }
+
+      .disclaimer h1 {
+        margin-top: 32px;
+      }
+
+      .top {
+        min-height: 38%;
+        background-image: url(assets/group.png), url(assets/obrigado_elipse.png);
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-size: 75%, cover;
+        background-position-y: 12px, -65px;
+      }
+
+      .cta {
+        margin-top: 48px;
+      }
+    </style>
+  </head>
+
+  <body
+    onload="trackEvent('Page Viewed', { game_status: getParam('game_status'), page: 'obrigado'});"
+  >
+    <div class="container">
+      <div class="header"></div>
+      <div class="top"></div>
+      <div class="disclaimer">
+        <h1>Obrigado por avaliar!</h1>
+        <p>
+          Sua opinião é muito importante pra gente. No PicPay trabalhamos
+          constantemente para proporcionar a melhor experiência de pagamento.
+        </p>
+      </div>
+
+      <div class="cta enviar">
+        <a href="picpay://picpay/promotions">Voltar a tela de início</a>
+      </div>
+      <div class="bottom-picpay">
+        <img src="assets/picpay.png" alt="picpay-logo" />
+      </div>
+    </div>
+  </body>
+</html>
