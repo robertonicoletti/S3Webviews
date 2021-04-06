@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PicPay | Aqui seu dinheiro rende muito mais que a poupança</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="stylesheet" type="text/css" href="static/style/slide.css">
+  <link rel="stylesheet" type="text/css" href="static/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="static/slick/slick-theme.css">
+  <link rel="stylesheet" href="https://use.typekit.net/nst7lvq.css">
+  <script src="https://cdn.picpay.com/wv/mixpanel.js"></script>
+
+</head>
+
+<!-- HERO -->
+<table align="center" cellpadding="0" cellspacing="0" width="100%"
+  style="overflow-x: hidden; border:0; max-width: 560px;">
+  <tbody>
+    <tr>
+      <td>
+        <table cellpadding="0" cellspacing="0" width="100%" style="overflow-x: hidden; border: 0; ">
+          <tbody>
+            <tr>
+              <td>
+                <p style="text-align: center; margin:0px;">
+                  <img src="./static/images/hero.png" alt="" style="width: 100%; bottom:0;" />
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <p style="text-align: center; margin:0px;">
+          <img src="./static/images/visa.png" alt="" style="width: 70%; margin: 20px auto 0 auto" />
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div style="margin: 0 auto 30px auto;">
+  <div class="slick2 slider">
+    <div>
+      <p class="text-center">
+        <img class="slide" src="./static/images/slide-1.png" alt="" />
+      </p>
+
+    </div>
+    <div>
+      <p class="text-center">
+        <img class="slide" src="./static/images/slide-2.png" alt="" />
+      </p>
+
+    </div>
+    <div>
+      <p class="text-center">
+        <img class="slide" src="./static/images/slide-3.png" alt="" />
+      </p>
+    </div>
+    <div>
+      <p class="text-center">
+        <img class="slide" src="./static/images/slide-4.png" alt="" />
+      </p>
+    </div>
+    <div>
+      <p class="text-center">
+        <img class="slide" src="./static/images/slide-5.png" alt="" />
+      </p>
+    </div>
+    <div>
+      <p class="text-center">
+        <img class="slide" src="./static/images/slide-6.png" alt="" />
+      </p>
+    </div>
+    <div>
+      <p class="text-center">
+        <img class="slide" src="./static/images/slide-7.png" alt="" />
+      </p>
+    </div>
+    <div>
+      <p class="text-center">
+        <img class="slide" src="./static/images/slide-8.png" alt="" />
+      </p>
+    </div>
+  </div>
+</div>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+        <p
+          style="margin: 20px auto; font-family:'montserrat', San Franscisco, Arial, sans-serif; font-size: 12px; line-height:125%; font-weight: 300; text-align: center; color: #223322;">
+          Taxa aplicada de 1,99%
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p style="text-align: center; margin:0px;">
+          <img src="./static/images/alert.png" alt="" style="width: 80%; margin: 0 auto 120px auto;" />
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- FOOTER BUTTON -->
+<div
+  style="width: 100%; position: fixed; bottom: 0; left: 0; background-color: #50D67B; padding: 20px 0px 20px 0px; box-shadow: 0px -7px 15px rgb(51, 63, 76, 0.2);">
+  <a id="optIn" class="cta" href="#"
+    style="height: 50px; width: 220px; font-family: 'montserrat', San Franscisco, Arial, sans-serif; background-color: #426DFF; border-radius: 50px; margin-right: auto; margin-left: auto; text-decoration: none; line-height: 50px; display:table; text-align: center; font-size: 14px; color: #ffffff;">
+    Cadastrar cartão
+  </a>
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+
+<script type="text/javascript">
+
+  $('.slick2').slick({
+    dots: true,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 6,
+    slidesToScroll: 6,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+          arrows: false,
+        }
+      }
+    ]
+  });
+
+  function getMobileOperatingSystem() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(userAgent)) {
+      Android.getToken();
+      Android.getInstallationId();
+      Android.getConsumerId();
+    }
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      window.webkit.messageHandlers.getToken.postMessage("");
+      window.webkit.messageHandlers.getInstallationId.postMessage("");
+      window.webkit.messageHandlers.getConsumerId.postMessage("");
+    }
+  }
+
+  getMobileOperatingSystem();
+
+  function setConsumerId(id) {
+    mixpanel.identify(id);
+  }
+
+  mixpanel.track("Webview Opened", {
+    //Insira o nome da mensagem
+    message: "webview"
+  });
+
+  mixpanel.track_links(".cta", "Webview Link Clicked", {
+    //Insira o nome da mensagem
+    message: "webview-F"
+  });
+</script>
+
+</body>
+
+</html>

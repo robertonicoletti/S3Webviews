@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box
+}
+
+:root {
+    touch-action: pan-x pan-y;
+}
+
+
+body {
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    color: #122418;
+    background-color: #F0F1E9;
+}
+
+.text-center {
+    text-align: center;
+}
