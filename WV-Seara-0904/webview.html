@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+    PicPay
+  </title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1,width=device-width,maximum-scale=1.0,user-scalable=no">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link rel="stylesheet" href="https://use.typekit.net/nst7lvq.css">
+  <script src="https://cdn.picpay.com/wv/mixpanel.js"></script>
+  <script type="text/javascript" src="./js/valid-form.js"></script>
+
+  <script language=javascript type="text/javascript">
+    dayName = new Array("domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado")
+    monName = new Array("janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro")
+    now = new Date
+  </script>
+
+  <style type="text/css">
+    body {
+      margin: 0px;
+    }
+
+    .shadow {
+      background: #eff0e8;
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15), 0px 2px 2px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      width: 90%;
+      margin: 3px 25px;
+    }
+
+    .btn-cta {
+      background-color: #426DFF;
+    }
+
+    .btn-cta.disabled {
+      background-color: #a9aab0;
+    }
+
+    input[type=checkbox]:not(old) {
+      width: 2em;
+      margin: 0;
+      padding: 0;
+      font-size: 1em;
+      opacity: 0;
+    }
+
+    [type="checkbox"]:checked,
+    [type="checkbox"]:not(:checked) {
+      position: absolute;
+      left: -9999px;
+    }
+
+    [type="checkbox"]:checked+label,
+    [type="checkbox"]:not(:checked)+label {
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+      line-height: 20px;
+      display: inline-block;
+      color: #223322;
+    }
+
+    [type="checkbox"]:checked+label:before,
+    [type="checkbox"]:not(:checked)+label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #00AC4A;
+      background: #eff0e8;
+    }
+
+    [type="checkbox"]:checked+label:after,
+    [type="checkbox"]:not(:checked)+label:after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: #00AC4A;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+
+    [type="checkbox"]:not(:checked)+label:after {
+      opacity: 0;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+
+    [type="checkbox"]:checked+label:after {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  </style>
+</head>
+
+<body style="background-color: #eff0e8;">
+
+  <form onsubmit="return false" id="form1">
+    <!-- HERO -->
+    <div style="width: 100%;">
+      <div style="width: 100%; text-align: center; ">
+        <img src="hero.png" alt="A" width="320" style="padding: 0px 0px 0px 0px; width: 100%;">
+      </div>
+    </div>
+
+    <table id="pagina-escolha">
+      <!-- CORPO DE TEXTO -->
+      <tr>
+        <td style="width: 100%;font-family:'montserrat', San Franscisco, Arial, sans-serif;">
+          <!-- <p id="teste">Blabla</p> -->
+          <p style="text-align: Center; font-size: 14px;line-height:100%;
+            font-family: 'montserrat', San Franscisco, Arial, sans-serif;color: #122418; font-weight: 300;">
+            <a href="regulamento-searav2.html" style="color:#122418; text-decoration: underline; ">Regulamento</a>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'montserrat', San Franscisco, Arial, sans-serif; font-size: 14px;">
+          <div class="example-form example-form_before">
+            <div class="shadow">
+              <input id="AceitoTermosSeara" type="checkbox" name="checkbox" value="AceitoTermosSeara" />
+              <label for="AceitoTermosSeara" style="margin: 20px;">Aceito o "Regulamento" da Promoção</label>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div style="margin:10px 16px 60px;">
+            <script language=javascript type="text/javascript">
+              document.write("<p id='dia' style='text-align: center; margin:30px 30px 0px 30px;font-size: 14px;line-height:150%;font-weight: 700;font-family: montserrat, San Franscisco, Arial, sans-serif;color: #122418;''>" + now.getDate() + " de " + monName[now.getMonth()] + " de " + now.getFullYear() + ". </p>")
+            </script>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div
+      style="width: 100%; position: fixed; bottom: 0; left: 0; background-color: #50D67B; padding: 20px 0px 20px 0px; box-shadow: 0px -7px 15px rgb(51, 63, 76, 0.2);"
+      id="btnOptIn">
+      <a id="optIn" class="btn-cta disabled" href="picpay://picpay/invoicecashback/scanner"
+        style="height: 50px; width: 220px; font-family: 'montserrat', San Franscisco, Arial, sans-serif; border-radius: 50px; margin-right: auto; margin-left: auto; text-decoration: none; line-height: 50px; display:table; text-align: center; font-size: 14px; color: #ffffff;">
+        Escanear Códigos
+      </a>
+    </div>
+  </form>
+
+  <script>
+    var AceitoTermos = '';
+    var timeOnPageCounter = 0;
+
+    mixpanel.track('Webview Opened',
+      {
+        //Insira o nome da mensagem
+        "message": "webview-termo-aceite-07042021"
+      }
+    );
+
+    window.onload = function timeOnPage() {
+      setInterval(function () {
+        timeOnPageCounter++;
+      }, 1000);
+    }
+
+    function sendTimeOnPageCounter() {
+      // Verificar qual nome para envio do evento de fechar Webview
+      mixpanel.track('Webview Closed',
+        {
+          "message": "webview-termo-aceite-07042021",
+          "timeOnPageCounter": timeOnPageCounter
+        }
+      );
+    }
+
+    document.getElementById("AceitoTermosSeara").addEventListener("change", function (e) {
+      var isAccept = document.getElementById("AceitoTermosSeara").checked;
+
+      if (isAccept) {
+        document.getElementById("optIn").classList.remove("disabled");
+      } else {
+        document.getElementById("optIn").className += " disabled";
+      }
+    });
+   
+    window.addEventListener("beforeunload", function (event) {
+      sendTimeOnPageCounter();
+    });
+    
+    document.getElementById("optIn").addEventListener("click", function (e) {
+      e.preventDefault();
+
+      var href = document.getElementById("optIn").href;
+      var CampoDezPorCento = document.getElementById("AceitoTermosSeara").checked;
+      var isAccept = document.getElementById("AceitoTermosSeara").checked;
+
+      AceitoTermos = CampoDezPorCento ? "NaoAceitou" : "AceitoTermosSeara";
+
+      mixpanel.track("Webview-TermosAceite-Seara",
+        {
+          //Insira o nome da mensagem
+          "message": "webview-termo-aceite-07042021",
+          "AceitoTermosSeara": AceitoTermos,
+        }
+      );
+
+      sendTimeOnPageCounter();
+
+      // document.getElementById("pagina-escolha").style.display = "none";
+      // document.getElementById("mensagem-sucesso").style.display = "block";
+      if (isAccept) {
+        window.location.href = document.getElementById("optIn").href;
+      }
+      
+    }, false);
+
+      var isAccept = document.getElementById("AceitoTermosSeara").checked;
+
+    (function RedirectsOnTime() {
+      var DataVencimento = new Date("2025", "02", "20");
+      var DataAtual = new Date();
+      if (DataAtual > DataVencimento) {
+        window.location.href = href;
+      }
+    })();
+
+    function getMobileOperatingSystem() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      if (/android/i.test(userAgent)) {
+        Android.getToken();
+        Android.getInstallationId();
+        Android.getConsumerId();
+      }
+      if (isAccept) {
+       window.location.href = document.getElementById("optIn").href;
+     }
+
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.webkit.messageHandlers.getToken.postMessage("");
+        window.webkit.messageHandlers.getInstallationId.postMessage("");
+        window.webkit.messageHandlers.getConsumerId.postMessage("");
+      }
+    }
+
+    getMobileOperatingSystem();
+
+    // Identificar usuário por consumer_id
+    function setConsumerId(id) {
+      mixpanel.identify(id);
+    }
+
+  </script>
+
+</body>
+
+</html>
